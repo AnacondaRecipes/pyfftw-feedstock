@@ -1,0 +1,41 @@
+From 3af1d7552a7bd2243d444b6c79644d17964e2e20 Mon Sep 17 00:00:00 2001
+From: Lorenzo Pirritano <lpirritano@anaconda.com>
+Date: Thu, 14 Mar 2024 23:34:36 -0600
+Subject: [PATCH] no-system-include
+
+---
+ setup.py | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 380e582..c7b1bbc 100755
+--- a/setup.py
++++ b/setup.py
+@@ -77,15 +77,9 @@ def get_include_dirs():
+     if 'PYFFTW_INCLUDE' in os.environ:
+         include_dirs.append(os.environ['PYFFTW_INCLUDE'])
+ 
+-    if get_platform().startswith("linux"):
+-        include_dirs.append('/usr/include')
+-
+     if get_platform() in ('win32', 'win-amd64'):
+         include_dirs.append(os.path.join(os.getcwd(), 'include', 'win'))
+ 
+-    if get_platform().startswith('freebsd'):
+-        include_dirs.append('/usr/local/include')
+-
+     return include_dirs
+ 
+ 
+@@ -115,8 +109,6 @@ def get_library_dirs():
+         library_dirs.append(os.environ['PYFFTW_LIB_DIR'])
+ 
+     library_dirs.append(os.path.join(sys.prefix, 'lib'))
+-    if get_platform().startswith('freebsd'):
+-        library_dirs.append('/usr/local/lib')
+ 
+     return library_dirs
+ 
+-- 
+2.39.1
+
