@@ -15,7 +15,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<39 or py>311]
+  # fftw not available for s390x
+  skip: true  # [py<38 or py>311 or s390x]
 
 requirements:
   build:
