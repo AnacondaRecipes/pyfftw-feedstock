@@ -35,6 +35,18 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
 
+{% set tests_to_skip = "" %}
+# on arm64 (and aarch64) these tests fail because the platforms
+# are not fully tested. See issues (from 2016 and 2020)
+#    https://github.com/pyFFTW/pyFFTW/issues/326
+#    https://github.com/pyFFTW/pyFFTW/issues/128
+{% set tests_to_skip = "test_alignment or test_flags or test_aligned_flag or test_auto_align_input" %}  # [aarch64 or arm64]
+
+{% set skip_tests_eventually = "" %}
+{% if tests_to_skip|length > 0 %}
+  {% set skip_tests_eventually = "-k \"not (" + tests_to_skip + ")\"" %}
+{% endif %}
+
 test:
   imports:
     - pyfftw
@@ -48,7 +60,7 @@ test:
     - tests
   commands:
     - pip check
-    - pytest --import-mode=append tests/
+    - pytest --import-mode=append {{ skip_tests_eventually }} tests/
 
 about:
   home: https://github.com/pyFFTW/pyFFTW
