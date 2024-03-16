@@ -29,15 +29,15 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - numpy
-    - fftw
+    - numpy {{ numpy }}
+    - fftw 3.3.9
   run:
     - python
     - {{ pin_compatible('numpy') }}
 
 {% set tests_to_skip = "" %}
 # on arm64 (and aarch64) these tests fail because the platforms
-# are not fully tested. See issues (from 2016 and 2020)
+# are not fully tested. See issues (from 2016 and 2021)
 #    https://github.com/pyFFTW/pyFFTW/issues/326
 #    https://github.com/pyFFTW/pyFFTW/issues/128
 {% set tests_to_skip = "test_alignment" %}  # [aarch64 or arm64]
@@ -68,7 +68,7 @@ test:
 
 about:
   home: https://github.com/pyFFTW/pyFFTW
-  license: BSD3 and BSD2 and GPL
+  license: BSD-3-Clause and BSD-2-Clause and GPL-2.0
   license_file: LICENSE.txt
   license_family: Other
   summary: A pythonic wrapper around FFTW, the FFT library, presenting a unified interface for all the supported transforms.
