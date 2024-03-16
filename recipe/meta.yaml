@@ -34,6 +34,7 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
+    - fftw 3.3.9  # [win]
 
 {% set tests_to_skip = "" %}
 # on arm64 (and aarch64) these tests fail because the platforms
