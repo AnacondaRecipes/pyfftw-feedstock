@@ -40,7 +40,11 @@ requirements:
 # are not fully tested. See issues (from 2016 and 2020)
 #    https://github.com/pyFFTW/pyFFTW/issues/326
 #    https://github.com/pyFFTW/pyFFTW/issues/128
-{% set tests_to_skip = "test_alignment or test_flags or test_aligned_flag or test_auto_align_input" %}  # [aarch64 or arm64]
+{% set tests_to_skip = "test_alignment" %}  # [aarch64 or arm64]
+{% set tests_to_skip = tests_to_skip + " or test_flags" %}  # [aarch64 or arm64]
+{% set tests_to_skip = tests_to_skip + " or test_aligned_flag" %}  # [aarch64 or arm64]
+{% set tests_to_skip = tests_to_skip + " or test_auto_align_input" %}  # [aarch64 or arm64]
+{% set tests_to_skip = tests_to_skip + " or test_get_alignment" %}  # [aarch64 or arm64]
 
 {% set skip_tests_eventually = "" %}
 {% if tests_to_skip|length > 0 %}
