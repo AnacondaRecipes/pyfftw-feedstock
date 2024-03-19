@@ -16,6 +16,7 @@ source:
 build:
   number: 0
   # fftw not available for s390x
+  # versioneer not updated for py312
   skip: true  # [py<38 or py>311 or s390x]
 
 requirements:
