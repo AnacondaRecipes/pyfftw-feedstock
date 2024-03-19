@@ -35,7 +35,7 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - fftw 3.3.9  # [win]
+    - fftw >=3.3.9,<3.4.0a0  # [win]
   run_constrained:
     - dask >=1.0
     - scipy >=1.8.0
