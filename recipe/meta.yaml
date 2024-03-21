@@ -28,7 +28,7 @@ requirements:
     - cython >=3
     - python
     - pip
-    - setuptools
+    - setuptools <=59.4.0
     - wheel
     - numpy {{ numpy }}
     - fftw 3.3.9
