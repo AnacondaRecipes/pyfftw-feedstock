@@ -49,7 +49,7 @@ requirements:
 {% set tests_to_skip = tests_to_skip + " or test_aligned_flag" %}  # [aarch64 or arm64]
 {% set tests_to_skip = tests_to_skip + " or test_auto_align_input" %}  # [aarch64 or arm64]
 {% set tests_to_skip = tests_to_skip + " or test_get_alignment" %}  # [aarch64 or arm64]
-{% set tests_to_skip = tests_to_skip + " or test_normalized" %}  # [aarch64 or arm64]
+{% set tests_to_skip = tests_to_skip + " or test_normalized" %}
 
 {% set skip_tests_eventually = "" %}
 {% if tests_to_skip|length > 0 %}
