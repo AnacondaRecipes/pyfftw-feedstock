@@ -18,6 +18,8 @@ build:
   # fftw not available for s390x
   # versioneer not updated for py312
   skip: true  # [py<38 or py>311 or s390x]
+  ignore_run_exports:
+    - fftw
 
 requirements:
   build:
@@ -64,7 +66,7 @@ test:
     - tests
   commands:
     - pip check
-    - pytest --import-mode=append -k "not {{ tests_to_skip }}" tests/
+    - pytest --import-mode=append -k "not ({{ tests_to_skip }})" tests/
 
 about:
   home: https://github.com/pyFFTW/pyFFTW
