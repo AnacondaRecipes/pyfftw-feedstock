@@ -18,8 +18,8 @@ build:
   # fftw not available for s390x
   # versioneer not updated for py312
   skip: true  # [py<38 or py>311 or s390x]
-  ignore_run_exports:
-    - fftw
+  # ignore_run_exports:
+  #   - fftw
 
 requirements:
   build:
